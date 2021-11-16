@@ -4,10 +4,11 @@ using Arrow.DeveloperTest.Types;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Xunit;
 
 namespace Arrow.DeveloperTest.Tests
 {
+    //[TestFixture]
+    [TestClass]
     public class PaymentTest
     {
         private readonly IPaymentService _paymentService;
@@ -27,10 +28,10 @@ namespace Arrow.DeveloperTest.Tests
             });
         }
 
-        [Fact]
+        [TestMethod]
         public void Test_Control_Should_Always_Pass() => Assert.IsTrue(1 == 1);
 
-        [Fact]
+        [TestMethod]
         public void MakePayment_Should_Return_Object_Valid()
         {
             var makePaymentRequest = new MakePaymentRequest();
@@ -40,14 +41,14 @@ namespace Arrow.DeveloperTest.Tests
             Assert.IsNotNull(result);
         }
 
-        [Fact]
-        public void MakePayment_Should_Return_True_For_Valid_Account()
+        [TestMethod]
+        public void MakePayment_Should_Return_False_For_Invalid_Account()
         {
             var makePaymentRequest = new MakePaymentRequest();
 
             var result = _paymentService.MakePayment(makePaymentRequest).Success;
 
-            Assert.IsTrue(result);
+            Assert.IsFalse(result);
         }
     }
 }
