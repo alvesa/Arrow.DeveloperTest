@@ -1,0 +1,31 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "40877d37-7a68-42b9-8184-62b0264d0ccf": {
+      "ProjectGuid": "40877d37-7a68-42b9-8184-62b0264d0ccf",
+      "DisplayName": "Arrow.DeveloperTest",
+      "ColorIndex": 0
+    },
+    "032617c3-ab84-45f2-9095-2e73cdacd13a": {
+      "ProjectGuid": "032617c3-ab84-45f2-9095-2e73cdacd13a",
+      "DisplayName": "Solution Items",
+      "ColorIndex": 1
+    },
+    "14b8c42c-a7c1-45c8-826b-b358761cf99d": {
+      "ProjectGuid": "14b8c42c-a7c1-45c8-826b-b358761cf99d",
+      "DisplayName": "Arrow.DeveloperTest.Runner",
+      "ColorIndex": 2
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    },
+    "43f210d1-bbd0-4f32-829d-6b6eb82369fd": {
+      "ProjectGuid": "43f210d1-bbd0-4f32-829d-6b6eb82369fd",
+      "DisplayName": "Arrow.DeveloperTest.Tests",
+      "ColorIndex": 3
+    }
+  },
+  "NextColorIndex": 4
+}
