@@ -2,6 +2,7 @@
 using Arrow.DeveloperTest.Services;
 using Arrow.DeveloperTest.Types;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Xunit;
 
@@ -13,15 +14,22 @@ namespace Arrow.DeveloperTest.Tests
 
         public PaymentTest()
         {
-            var service = new ServiceCollection();
-            service.AddTransient<IPaymentService, PaymentService>();
-            service.AddTransient<IAccountDataStore, AccountDataStore>();
+            var host = CreateHostBuilder().Build();
 
-            var provider = service.BuildServiceProvider();
-            _paymentService = provider.GetService<IPaymentService>();
+            _paymentService = host.Services.GetRequiredService<IPaymentService>();
         }
 
-        
+        public IHostBuilder CreateHostBuilder()
+        {
+            return Host.CreateDefaultBuilder().ConfigureServices(services => {
+                services.AddScoped<IPaymentService, PaymentService>();
+                services.AddTransient<IAccountDataStore, AccountDataStore>();
+            });
+        }
+
+        [Fact]
+        public void Test_Control_Should_Always_Pass() => Assert.IsTrue(1 == 1);
+
         [Fact]
         public void MakePayment_Should_Return_Object_Valid()
         {
@@ -33,7 +41,7 @@ namespace Arrow.DeveloperTest.Tests
         }
 
         [Fact]
-        public void MakePayment_Should_Return_True_For_Valid_Acount()
+        public void MakePayment_Should_Return_True_For_Valid_Account()
         {
             var makePaymentRequest = new MakePaymentRequest();
 
